@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let datum = new Date();
+		let jaar = datum.getFullYear()
+		let invoer=[]
+		let ingeven = () => {
+			let geboortejaar = prompt("Wat is je geboortejaar?");
+			let oud = prompt("Hou oud denk je te worden?");
+			let aantal = prompt("Hoeveel koppen koffie drink je per dag?");
+
+			if (geboortejaar == null|| oud == null|| aantal == null)
+				{document.write(`<p>Er is geannuleerd</p>`)}
+			else if (geboortejaar == 0|| oud == 0|| aantal == 0)
+				{document.write(`<p>Er is niets ingegeven</p>`)}
+			else if (isNaN(geboortejaar) == true|| isNaN(oud) == true|| isNaN(aantal) == true)
+				{document.write(`<p>Je hebt het niet correct ingevuld</p>`)}
+				else {return invoer = [geboortejaar, oud, aantal]}}
+
+
+		let tonen = () =>{
+						//ouderdom
+						let ouderdom = jaar - parseInt(invoer[0]);
+						//tegaanjaren
+						let tegaanjaren = parseInt(invoer[1]) - ouderdom;
+						//aantalkoffie
+						let aantalkoffie = tegaanjaren * 365 * parseInt(invoer[2]); 
+						document.write(`<p>Je bent nu ${ouderdom}. Tegen ${parseInt(invoer[2])} koppen koffie per dag zal je ${aantalkoffie} koppen koffie drinken als je ${parseInt(invoer[1])} jaar zal worden.</p>`)
+					}
+				
+		
+
+
+invoer = ingeven()
+tonen()
+
+
+
+		
+	</script>
+	
+</body>
+</html>
